@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Simple Blocker</title>
+        <style>
+            body {
+                margin: 0;
+            }
+
+            #root {
+                padding: 16px;
+                font-family: monospace;
+                font-size: 16px;
+                line-height: 1.5;
+            }
+
+            .type_list_container {
+                max-width: 640px;
+            }
+
+            .label {
+                font-weight: bold;
+            }
+
+            .list {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .item {
+                font-family: monospace;
+                font-size: 16px;
+                line-height: 1.5;
+                display: flex;
+                margin-bottom: 8px;
+                gap: 8px;
+            }
+
+            .value {
+                display: flex;
+                align-items: center;
+                font-family: monospace;
+                font-size: 16px;
+                line-height: 1.5;
+                flex-grow: 1;
+                background-color: rgb(245, 245, 245);
+                overflow: hidden;
+            }
+
+            .button {
+                font-family: monospace;
+                font-size: 16px;
+                line-height: 1.5;
+                padding: 0;
+                margin: 0;
+                border: none;
+                padding: 4px 8px;
+                background-color: rgb(206, 206, 206);
+                cursor: pointer;
+            }
+
+            .input_container {
+                display: flex;
+                gap: 8px;
+            }
+
+            .input {
+                font-family: monospace;
+                font-size: 16px;
+                line-height: 1.5;
+                padding: 0;
+                margin: 0;
+                border-width: 1px;
+                padding: 3px;
+                flex-grow: 1;
+            }
+
+            .input:focus {
+                outline: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script src="./options.js"></script>
+    </body>
+</html>
