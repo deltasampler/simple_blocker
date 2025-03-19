@@ -144,9 +144,32 @@ function render_type_list(key, label, parent_el) {
     return container;
 }
 
+function render_redirect_url_container(parent_el) {
+    const redirect_url_container = render_container(parent_el);
+    redirect_url_container.classList.add("redirect_url_container");
+
+    render_label("Redirect URL", redirect_url_container);
+
+    const input_container = render_container(redirect_url_container);
+    input_container.classList.add("input_container");
+
+    const input = render_input(input_container);
+
+    chrome.storage.local.get(["redirect_url"], function(result) {
+        input.value = result.redirect_url ?? '';
+    });
+
+    const button = render_button("Set", input_container);
+
+    button.onclick = function() {
+        chrome.storage.local.set({"redirect_url": input.value});
+    }
+}
+
 function render() {
     const root_el = document.querySelector("#root");
 
+    render_redirect_url_container(root_el);
     render_type_list("blacklist", "Blacklist:", root_el);
     render_type_list("blacklist_exceptions", "Blacklist Exceptions:", root_el);
 }
