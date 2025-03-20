@@ -99,7 +99,7 @@ function render_type_item(key, value, parent_el) {
     value_el.innerHTML = value;
     bl_item.append(value_el);
 
-    const btn = render_button("Remove", bl_item);
+    const btn = render_button("DEL", bl_item);
     
     btn.onclick = function() {
         list_remove(key, value, function(items) {
@@ -127,7 +127,9 @@ function render_type_list(key, label, parent_el) {
     input_container.classList.add("input_container");
 
     const input = render_input(input_container);
-    const button = render_button("Add", input_container);
+    input.placeholder = "URL"
+
+    const button = render_button("ADD", input_container);
 
     button.onclick = function() {
         if (!input.value) {
@@ -159,7 +161,7 @@ function render_redirect_url_container(parent_el) {
         input.value = result.redirect_url ?? '';
     });
 
-    const button = render_button("Set", input_container);
+    const button = render_button("SET", input_container);
 
     button.onclick = function() {
         chrome.storage.local.set({"redirect_url": input.value});
